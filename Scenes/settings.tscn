@@ -1,0 +1,193 @@
+[gd_scene load_steps=24 format=3 uid="uid://bcv7d8nkmi3la"]
+
+[ext_resource type="Script" path="res://Settings.gd" id="1_ew6jc"]
+[ext_resource type="Texture2D" uid="uid://ciw28eowdpbeq" path="res://Assets/BG.png" id="1_ng32c"]
+[ext_resource type="Texture2D" uid="uid://lg8pgar6br5a" path="res://Assets/Water.png" id="2_h22cp"]
+[ext_resource type="Texture2D" uid="uid://g7efrnlpgkam" path="res://Assets/NightBG.png" id="3_l8kwi"]
+[ext_resource type="Script" path="res://Water.gd" id="3_wb6um"]
+[ext_resource type="Texture2D" uid="uid://d0c8ifo3xxu7u" path="res://Assets/Concrete.png" id="4_nbhl3"]
+[ext_resource type="Script" path="res://BackGround.gd" id="4_q00qc"]
+[ext_resource type="Shader" path="res://Shadow.gdshader" id="5_0wk77"]
+[ext_resource type="FontFile" uid="uid://cblc2o47vsgi6" path="res://Assets/karmatic-arcade/Pixeled.ttf" id="6_726qe"]
+[ext_resource type="Texture2D" uid="uid://d3k637yuuixot" path="res://Assets/ButtonOn.png" id="7_krrjm"]
+[ext_resource type="Texture2D" uid="uid://dkl7mkpluhlld" path="res://Assets/ButtonOff.png" id="8_eehq2"]
+[ext_resource type="Shader" path="res://menu.gdshader" id="9_p4rme"]
+[ext_resource type="Texture2D" uid="uid://dei10crqswjlj" path="res://Assets/Back.png" id="10_ewrrb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iywhb"]
+shader = ExtResource("5_0wk77")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_uwkhh"]
+default_font = ExtResource("6_726qe")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_7ewse"]
+default_font = ExtResource("6_726qe")
+default_font_size = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkhcy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36jkl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oakyp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2byf6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jcpl1"]
+shader = ExtResource("9_p4rme")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 0.588
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40wid"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pu8fc"]
+
+[node name="settings" type="Node2D"]
+script = ExtResource("1_ew6jc")
+
+[node name="Bg" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(281, 462)
+scale = Vector2(18.479, 18.479)
+texture = ExtResource("1_ng32c")
+
+[node name="Bg2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(281, 462)
+scale = Vector2(18.4792, 17.7399)
+texture = ExtResource("3_l8kwi")
+script = ExtResource("4_q00qc")
+
+[node name="Water" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(290, 655)
+scale = Vector2(10, 10)
+texture = ExtResource("2_h22cp")
+script = ExtResource("3_wb6um")
+
+[node name="Concrete" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(289, 681)
+scale = Vector2(10, 10)
+texture = ExtResource("4_nbhl3")
+
+[node name="ColorRect" type="ColorRect" parent="Concrete"]
+offset_left = -33.0
+offset_top = 28.8
+offset_right = 36.0
+offset_bottom = 68.8
+color = Color(0.517647, 0.494118, 0.529412, 1)
+
+[node name="ScoreText" type="Label" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_iywhb")
+offset_left = 145.0
+offset_top = 275.0
+offset_right = 305.0
+offset_bottom = 369.0
+theme = SubResource("Theme_uwkhh")
+text = "SOUND"
+horizontal_alignment = 1
+
+[node name="ScoreText" type="Label" parent="ScoreText"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_iywhb")
+layout_mode = 0
+offset_left = -35.0
+offset_top = -273.0
+offset_right = 336.0
+offset_bottom = -179.0
+theme = SubResource("Theme_7ewse")
+text = "MADE IN GODOT"
+horizontal_alignment = 1
+
+[node name="ScoreText2" type="Label" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_iywhb")
+offset_left = 146.0
+offset_top = 374.0
+offset_right = 306.0
+offset_bottom = 468.0
+theme = SubResource("Theme_uwkhh")
+text = "MUSIC"
+horizontal_alignment = 1
+
+[node name="ScoreText3" type="Label" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_iywhb")
+offset_left = 151.0
+offset_top = 474.0
+offset_right = 311.0
+offset_bottom = 568.0
+theme = SubResource("Theme_uwkhh")
+text = "BLOOD"
+horizontal_alignment = 1
+
+[node name="sound" type="CheckButton" parent="."]
+texture_filter = 1
+offset_left = 308.0
+offset_top = 288.0
+offset_right = 338.0
+offset_bottom = 305.0
+scale = Vector2(4.74611, 4.82003)
+theme_override_icons/checked = ExtResource("7_krrjm")
+theme_override_icons/unchecked = ExtResource("8_eehq2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qkhcy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_36jkl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oakyp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2byf6")
+button_pressed = true
+
+[node name="music" type="CheckButton" parent="."]
+texture_filter = 1
+offset_left = 309.0
+offset_top = 388.0
+offset_right = 339.0
+offset_bottom = 405.0
+scale = Vector2(4.74611, 4.82003)
+theme_override_icons/checked = ExtResource("7_krrjm")
+theme_override_icons/unchecked = ExtResource("8_eehq2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qkhcy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_36jkl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oakyp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2byf6")
+button_pressed = true
+
+[node name="blood" type="CheckButton" parent="."]
+texture_filter = 1
+offset_left = 308.0
+offset_top = 489.0
+offset_right = 338.0
+offset_bottom = 506.0
+scale = Vector2(4.74611, 4.82003)
+theme_override_icons/checked = ExtResource("7_krrjm")
+theme_override_icons/unchecked = ExtResource("8_eehq2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qkhcy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_36jkl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oakyp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2byf6")
+button_pressed = true
+
+[node name="back" type="Button" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_jcpl1")
+offset_left = 189.0
+offset_top = 801.0
+offset_right = 298.0
+offset_bottom = 907.0
+scale = Vector2(1.78648, 1.73992)
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_40wid")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pu8fc")
+icon = ExtResource("10_ewrrb")
+flat = true
+expand_icon = true
+
+[connection signal="toggled" from="sound" to="." method="_on_sound_toggled"]
+[connection signal="toggled" from="music" to="." method="_on_music_toggled"]
+[connection signal="pressed" from="blood" to="." method="_on_blood_pressed"]
+[connection signal="toggled" from="blood" to="." method="_on_blood_toggled"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

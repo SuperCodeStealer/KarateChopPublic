@@ -1,0 +1,265 @@
+[gd_scene load_steps=25 format=3 uid="uid://37r106i35wbq"]
+
+[ext_resource type="Script" path="res://shop.gd" id="1_8bs5k"]
+[ext_resource type="Texture2D" uid="uid://ciw28eowdpbeq" path="res://Assets/BG.png" id="1_ji6x6"]
+[ext_resource type="Texture2D" uid="uid://lg8pgar6br5a" path="res://Assets/Water.png" id="2_paknj"]
+[ext_resource type="Texture2D" uid="uid://g7efrnlpgkam" path="res://Assets/NightBG.png" id="3_ndphi"]
+[ext_resource type="Script" path="res://Water.gd" id="3_nxaxc"]
+[ext_resource type="Texture2D" uid="uid://d0c8ifo3xxu7u" path="res://Assets/Concrete.png" id="4_78yrp"]
+[ext_resource type="Script" path="res://BackGround.gd" id="4_ba5th"]
+[ext_resource type="Shader" path="res://menu.gdshader" id="5_gymvc"]
+[ext_resource type="Texture2D" uid="uid://cywmj8yuw4s5c" path="res://Assets/Buy.png" id="6_176ut"]
+[ext_resource type="Texture2D" uid="uid://dei10crqswjlj" path="res://Assets/Back.png" id="7_s2m46"]
+[ext_resource type="FontFile" uid="uid://cblc2o47vsgi6" path="res://Assets/karmatic-arcade/Pixeled.ttf" id="9_nvap3"]
+[ext_resource type="Shader" path="res://Shadow.gdshader" id="10_xve0n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbq07"]
+shader = ExtResource("5_gymvc")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 0.588
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2iw2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c82e"]
+shader = ExtResource("10_xve0n")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_sjghe"]
+default_font = ExtResource("9_nvap3")
+default_font_size = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1a0fa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_em6fh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tcycu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwy77"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a86ud"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s31vd"]
+shader = ExtResource("5_gymvc")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 0.588
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4ggo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25w5v"]
+
+[node name="shop" type="Node2D"]
+script = ExtResource("1_8bs5k")
+
+[node name="Bg" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(281, 462)
+scale = Vector2(18.479, 18.479)
+texture = ExtResource("1_ji6x6")
+
+[node name="Bg2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(281, 462)
+scale = Vector2(18.4792, 17.7399)
+texture = ExtResource("3_ndphi")
+script = ExtResource("4_ba5th")
+
+[node name="Water" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(290, 655)
+scale = Vector2(10, 10)
+texture = ExtResource("2_paknj")
+script = ExtResource("3_nxaxc")
+
+[node name="Concrete" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(289, 681)
+scale = Vector2(10, 10)
+texture = ExtResource("4_78yrp")
+
+[node name="ColorRect" type="ColorRect" parent="Concrete"]
+offset_left = -33.0
+offset_top = 31.0
+offset_right = 36.0
+offset_bottom = 71.0
+color = Color(0.517647, 0.494118, 0.529412, 1)
+
+[node name="Buy1" type="Button" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_pbq07")
+offset_left = 395.0
+offset_top = 118.0
+offset_right = 556.0
+offset_bottom = 224.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f2iw2")
+icon = ExtResource("6_176ut")
+flat = true
+expand_icon = true
+
+[node name="Text6" type="Label" parent="Buy1"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_8c82e")
+layout_mode = 0
+offset_left = -440.0
+offset_top = 10.0
+offset_right = 53.0
+offset_bottom = 104.0
+theme = SubResource("Theme_sjghe")
+text = "CAT - 100"
+horizontal_alignment = 1
+
+[node name="Buy2" type="Button" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_pbq07")
+offset_left = 395.0
+offset_top = 256.0
+offset_right = 556.0
+offset_bottom = 362.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1a0fa")
+icon = ExtResource("6_176ut")
+flat = true
+expand_icon = true
+
+[node name="Text5" type="Label" parent="Buy2"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_8c82e")
+layout_mode = 0
+offset_left = -440.0
+offset_top = 10.0
+offset_right = 53.0
+offset_bottom = 104.0
+theme = SubResource("Theme_sjghe")
+text = "DOG - 1k"
+horizontal_alignment = 1
+
+[node name="Buy3" type="Button" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_pbq07")
+offset_left = 397.0
+offset_top = 391.0
+offset_right = 558.0
+offset_bottom = 497.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_em6fh")
+icon = ExtResource("6_176ut")
+flat = true
+expand_icon = true
+
+[node name="Text4" type="Label" parent="Buy3"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_8c82e")
+layout_mode = 0
+offset_left = -442.0
+offset_top = 9.0
+offset_right = 51.0
+offset_bottom = 103.0
+theme = SubResource("Theme_sjghe")
+text = "2X MONEY - 2k"
+horizontal_alignment = 1
+
+[node name="Buy4" type="Button" parent="."]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_pbq07")
+offset_left = 397.0
+offset_top = 476.0
+offset_right = 558.0
+offset_bottom = 582.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tcycu")
+icon = ExtResource("6_176ut")
+flat = true
+expand_icon = true
+
+[node name="Text3" type="Label" parent="Buy4"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_8c82e")
+layout_mode = 0
+offset_left = -442.0
+offset_top = 9.0
+offset_right = 51.0
+offset_bottom = 103.0
+theme = SubResource("Theme_sjghe")
+text = "UNDER WORK"
+horizontal_alignment = 1
+
+[node name="Buy5" type="Button" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_pbq07")
+offset_left = 398.0
+offset_top = 531.0
+offset_right = 559.0
+offset_bottom = 637.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qwy77")
+icon = ExtResource("6_176ut")
+flat = true
+expand_icon = true
+
+[node name="Text2" type="Label" parent="Buy5"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_8c82e")
+layout_mode = 0
+offset_left = -443.0
+offset_top = 9.0
+offset_right = 50.0
+offset_bottom = 103.0
+theme = SubResource("Theme_sjghe")
+text = "NIGHT THEME - 10k"
+horizontal_alignment = 1
+
+[node name="Buy6" type="Button" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_pbq07")
+offset_left = 398.0
+offset_top = 659.0
+offset_right = 559.0
+offset_bottom = 765.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a86ud")
+icon = ExtResource("6_176ut")
+flat = true
+expand_icon = true
+
+[node name="Text" type="Label" parent="Buy6"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_8c82e")
+layout_mode = 0
+offset_left = -443.0
+offset_top = 7.0
+offset_right = 50.0
+offset_bottom = 101.0
+theme = SubResource("Theme_sjghe")
+text = "GOLD EFFECTS - 100k"
+horizontal_alignment = 1
+
+[node name="back" type="Button" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_s31vd")
+offset_left = 189.0
+offset_top = 801.0
+offset_right = 298.0
+offset_bottom = 907.0
+scale = Vector2(1.78648, 1.73992)
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u4ggo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_25w5v")
+icon = ExtResource("7_s2m46")
+flat = true
+expand_icon = true
+
+[node name="Money" type="Label" parent="."]
+texture_filter = 1
+offset_left = 154.0
+offset_top = 48.0
+offset_right = 442.0
+offset_bottom = 142.0
+theme = SubResource("Theme_sjghe")
+text = "Money:1000"
+
+[connection signal="pressed" from="Buy1" to="." method="_on_buy_1_pressed"]
+[connection signal="pressed" from="Buy2" to="." method="_on_buy_2_pressed"]
+[connection signal="pressed" from="Buy3" to="." method="_on_buy_3_pressed"]
+[connection signal="pressed" from="Buy5" to="." method="_on_buy_5_pressed"]
+[connection signal="pressed" from="Buy6" to="." method="_on_buy_6_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

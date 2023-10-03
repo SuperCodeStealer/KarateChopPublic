@@ -1,0 +1,156 @@
+[gd_scene load_steps=24 format=3 uid="uid://bqjlv12tc302"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_oedww"]
+[ext_resource type="Texture2D" uid="uid://ciw28eowdpbeq" path="res://Assets/BG.png" id="1_tajab"]
+[ext_resource type="Texture2D" uid="uid://lg8pgar6br5a" path="res://Assets/Water.png" id="2_fh0mx"]
+[ext_resource type="Script" path="res://Water.gd" id="3_cuq4y"]
+[ext_resource type="Texture2D" uid="uid://g7efrnlpgkam" path="res://Assets/NightBG.png" id="3_ymn2u"]
+[ext_resource type="Script" path="res://BackGround.gd" id="4_fl53j"]
+[ext_resource type="Texture2D" uid="uid://d0c8ifo3xxu7u" path="res://Assets/Concrete.png" id="4_o2mmv"]
+[ext_resource type="Shader" path="res://menu.gdshader" id="5_1psgs"]
+[ext_resource type="Material" uid="uid://db0xyhfvpeu4y" path="res://OutlineShader.tres" id="5_v7a0t"]
+[ext_resource type="Texture2D" uid="uid://bkuucmqrs18b4" path="res://Assets/PlayButton.png" id="5_v45q2"]
+[ext_resource type="Texture2D" uid="uid://bcou6bdiyr0mv" path="res://Assets/Player.png" id="6_cl3b2"]
+[ext_resource type="Material" uid="uid://bcyuj4jaddmwx" path="res://Shadow.tres" id="8_iarhy"]
+[ext_resource type="Script" path="res://PlayerShadow.gd" id="9_0gv2c"]
+[ext_resource type="Texture2D" uid="uid://c1rjf3m654xm5" path="res://Assets/Upgrade.png" id="11_2l0i7"]
+[ext_resource type="Texture2D" uid="uid://b8isyox07unfr" path="res://Assets/Settings.png" id="12_r6flb"]
+[ext_resource type="Shader" path="res://Shadow.gdshader" id="14_05sc5"]
+[ext_resource type="FontFile" uid="uid://cblc2o47vsgi6" path="res://Assets/karmatic-arcade/Pixeled.ttf" id="15_knq4x"]
+[ext_resource type="Script" path="res://ScoreText.gd" id="16_uw3yl"]
+[ext_resource type="Script" path="res://HighScore.gd" id="17_3ftxr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gm75"]
+shader = ExtResource("5_1psgs")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 0.588
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqjr7"]
+shader = ExtResource("14_05sc5")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_5wtep"]
+default_font = ExtResource("15_knq4x")
+default_font_size = 72
+
+[sub_resource type="Theme" id="Theme_xgbq3"]
+default_font = ExtResource("15_knq4x")
+default_font_size = 32
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_oedww")
+
+[node name="Bg" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(281, 462)
+scale = Vector2(18.479, 18.479)
+texture = ExtResource("1_tajab")
+
+[node name="Bg2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(281, 462)
+scale = Vector2(18.4792, 17.7399)
+texture = ExtResource("3_ymn2u")
+script = ExtResource("4_fl53j")
+
+[node name="Water" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(290, 655)
+scale = Vector2(10, 10)
+texture = ExtResource("2_fh0mx")
+script = ExtResource("3_cuq4y")
+
+[node name="Concrete" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(289, 681)
+scale = Vector2(10, 10)
+texture = ExtResource("4_o2mmv")
+
+[node name="ColorRect" type="ColorRect" parent="Concrete"]
+offset_left = -33.0
+offset_top = 28.8
+offset_right = 36.0
+offset_bottom = 68.8
+color = Color(0.517647, 0.494118, 0.529412, 1)
+
+[node name="Player" type="Sprite2D" parent="."]
+texture_filter = 1
+material = ExtResource("5_v7a0t")
+position = Vector2(286, 715)
+scale = Vector2(10, 10)
+texture = ExtResource("6_cl3b2")
+hframes = 4
+vframes = 2
+
+[node name="shadow" type="Sprite2D" parent="Player"]
+material = ExtResource("8_iarhy")
+position = Vector2(0, 12.1)
+scale = Vector2(1, -1)
+texture = ExtResource("6_cl3b2")
+hframes = 4
+vframes = 4
+script = ExtResource("9_0gv2c")
+
+[node name="Play" type="Button" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_4gm75")
+offset_left = 175.0
+offset_top = 881.0
+offset_right = 407.0
+offset_bottom = 987.0
+icon = ExtResource("5_v45q2")
+flat = true
+expand_icon = true
+
+[node name="Upgrades" type="Button" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_4gm75")
+offset_left = 419.0
+offset_top = 881.0
+offset_right = 528.0
+offset_bottom = 987.0
+icon = ExtResource("11_2l0i7")
+flat = true
+expand_icon = true
+
+[node name="Settings" type="Button" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_4gm75")
+offset_left = 60.0
+offset_top = 881.0
+offset_right = 169.0
+offset_bottom = 987.0
+icon = ExtResource("12_r6flb")
+flat = true
+expand_icon = true
+
+[node name="ScoreText" type="Label" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vqjr7")
+offset_left = 6.0
+offset_top = 25.0
+offset_right = 573.0
+offset_bottom = 231.0
+theme = SubResource("Theme_5wtep")
+text = "SCORE"
+horizontal_alignment = 1
+script = ExtResource("16_uw3yl")
+
+[node name="ScoreText2" type="Label" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vqjr7")
+offset_left = -3.0
+offset_top = 17.0
+offset_right = 564.0
+offset_bottom = 223.0
+theme = SubResource("Theme_xgbq3")
+text = "SCORE"
+horizontal_alignment = 1
+script = ExtResource("17_3ftxr")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Upgrades" to="." method="_on_upgrades_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
